@@ -1,0 +1,3 @@
+[submodule "oraclize"]
+	path = oraclize
+	url = git@github.com:oraclize/ethereum-api
