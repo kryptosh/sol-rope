@@ -8,19 +8,19 @@ contract usingRope is usingOraclize {
 		_;
 	}
 
-	function rope_raw(string url) internal returns (bytes32 id) {
+	function rope_raw(string url) internal returns (bytes32 _id) {
 		return oraclize_query("URL", url);
 	}
 
-	function rope_raw(string url, string json) internal returns (bytes32 id) {
+	function rope_raw(string url, string json) internal returns (bytes32 _id) {
 		return oraclize_query("URL", url, json);
 	}
 
-	function rope_run(string id, string method) internal returns (bytes32 id) {
+	function rope_run(string id, string method) internal returns (bytes32 _id) {
 		return rope_raw(strConcat("https://run.rope.live/", "/", method));
 	}
 
-	function rope_run(string id, string method, string json) internal returns (bytes32 id) {
+	function rope_run(string id, string method, string json) internal returns (bytes32 _id) {
 		return rope_raw(strConcat("https://run.rope.live/", id, "/", method), json);
 	}
 }
