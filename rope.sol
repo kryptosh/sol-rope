@@ -20,7 +20,7 @@ contract usingRope is usingOraclize {
 		return rope_raw("https://run.rope.live/" + id + "/" + method);
 	}
 
-	fucntion rope_run(string id, string method, string json) internal returns (bytes32 id) {
+	function rope_run(string id, string method, string json) internal returns (bytes32 id) {
 		return rope_raw("https://run.rope.live/" + id + "/" + method, json);
 	}
 }
