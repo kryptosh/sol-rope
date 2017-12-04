@@ -16,11 +16,19 @@ contract usingRope is usingOraclize {
 		return oraclize_query("URL", url, json);
 	}
 
-	function rope_run(string id, string method) internal returns (bytes32 _id) {
-		return rope_raw(strConcat("https://run.rope.live/", "/", method));
+	function rope_run(string method) internal returns (bytes32 _id) {
+		return rope_raw(strConcat("https://run.rope.live/", method));
 	}
 
-	function rope_run(string id, string method, string json) internal returns (bytes32 _id) {
+	function rope_run(string method, string json) internal returns (bytes32 _id) {
+		return rope_raw(strConcat("https://run.rope.live/", method), json);
+	}
+
+	function rope_run_id(string id, string method) internal returns (bytes32 _id) {
+		return rope_raw(strConcat("https://run.rope.live/", id, "/", method));
+	}
+
+	function rope_run_id(string id, string method, string json) internal returns (bytes32 _id) {
 		return rope_raw(strConcat("https://run.rope.live/", id, "/", method), json);
 	}
 }
