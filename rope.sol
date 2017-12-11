@@ -25,11 +25,13 @@ contract usingRope is usingOraclize {
 	}
 
 	function rope_run(string method, string arg1, string arg2) internal returns (bytes32 _id) {
-		return rope_raw(strConcat("https://run.rope.live/method/", method, "?args[0]=", arg1, "&args[1]=", arg2));
+		string args = strConcat("?args[0]=", arg1, "&args[1]=", arg2);
+		return rope_raw(strConcat("https://run.rope.live/method/", method, args));
 	}
 
 	function rope_run(string method, string arg1, string arg2, string arg3) internal returns (bytes32 _id) {
-		return rope_raw(strConcat("https://run.rope.live/method/", method, "?args[0]=", arg1, "&args[1]=", arg2, "&args[2]=", arg3));
+		string args = strConcat("?args[0]=", arg1, "&args[1]=", arg2, "&args[2]=", arg3);
+		return rope_raw(strConcat("https://run.rope.live/method/", method, args));
 	}
 
 	function rope_run_id(string id, string method) internal returns (bytes32 _id) {
